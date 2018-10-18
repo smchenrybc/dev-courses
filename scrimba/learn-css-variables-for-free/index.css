@@ -1,0 +1,81 @@
+/**
+ * index.css
+ */
+
+/*
+Variables
+ */
+:root {
+  --blue: #84BEE5;
+  --gold: #FFCB5C;
+  --green: #43AD84;
+  --orange: #F7AC73;
+  --red: #FF6F69;
+  --yellow: #FFEEAC;
+
+  --main-color: var(--red);
+}
+body {
+  --bg-color: var(--yellow);
+}
+.grid {
+  --columns: 200px 200px;
+}
+
+/*
+Styles
+ */
+html, body {
+  color: var(--main-color);
+}
+body {
+  background-color: var(--bg-color);
+}
+
+h1, p {
+  color: var(--main-color);
+}
+
+button {
+  color: var(--yellow);
+  background-color: var(--main-color);
+}
+
+#navbar {
+  --main-color: var(--blue);
+}
+
+#navbar a {
+  color: var(--main-color);
+}
+
+.item {
+  --item-blue: #74A9FD;
+  text-align: center;
+  background-color: var(--gold);
+  cursor: pointer;
+  transition: all 0.375s ease;
+}
+.item:hover {
+  background-color: var(--orange);
+}
+
+/*
+Grid
+ */
+.grid {
+  display: grid;
+  grid-template-columns: var(--columns);
+  grid-auto-rows: 140px;
+  grid-gap: 20px;
+  justify-content: center;
+}
+
+@media all and (max-width: 450px) {
+  body {
+    --bg-color: var(--blue);
+  }
+  .grid {
+    --columns: 200px;
+  }
+}

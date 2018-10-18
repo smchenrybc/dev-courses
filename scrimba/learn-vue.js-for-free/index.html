@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"><!-- required for emojis! -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- MiniReset -->
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jgthms/minireset.css/master/minireset.css">
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Web font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900">
+    <!-- Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  </head>
+
+  <body><!-- add 'debug' attribute -->
+    <!-- App -->
+    <div id="app" :style="gradient(active)">
+      <swatch v-for="swatch in swatches"
+        @click.native="activate(swatch)"
+        :active="active" :swatch="swatch" :effect="gradient">
+      </swatch>
+    </div>
+
+    <!-- Scripts -->
+    <script src="index.js"></script>
+  </body>
+</html>
