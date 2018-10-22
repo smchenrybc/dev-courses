@@ -6,8 +6,7 @@ class App extends React.Component {
     super();
 
     this.state = {
-      txt: "This is the state text.",
-      cat: 0
+      txt: "This is the state text."
     }
   }
 
@@ -20,11 +19,17 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>{this.state.txt} – {this.state.cat}</h1>
-        <input type="text" onChange={this.update.bind(this)} />
+        <h1>{this.state.txt}</h1>
+        <Widget update={this.update.bind(this)} />
+        <Widget update={this.update.bind(this)} />
+        <Widget update={this.update.bind(this)} />
       </div>
     )
   }
 }
 
-export default App
+const Widget = (props) => (
+  <input type="text" onChange={props.update} />
+)
+
+export default App;
