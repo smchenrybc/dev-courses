@@ -1,14 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class App extends React.Component {
   render() {
-    return (
-      <div>
-        <h1>Hello, world!</h1>
-        <strong>I'm some bold text.</strong>
-      </div>
-    )
+    let txt = this.props.txt
+    return <h1>{ txt }</h1>
   }
+}
+
+App.propTypes = {
+  txt: PropTypes.string,
+  cat: PropTypes.number.isRequired
+}
+
+App.defaultProps = {
+  txt: "This is the default text."
 }
 
 export default App
