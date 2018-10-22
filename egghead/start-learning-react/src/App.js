@@ -2,12 +2,13 @@ import React from 'react';
 
 class App extends React.Component {
   render() {
-    return <h1 className="">Hello, world!</h1>
-
-    // return React.createElement('h1', null, 'Hello, world!')
+    return (
+      <div>
+        <h1>Hello, world!</h1>
+        <strong>I'm some bold text.</strong>
+      </div>
+    )
   }
 }
-
-// const App = () => <h1>I'm a stateless app.</h1>
 
 export default App
