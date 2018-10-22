@@ -1,18 +1,40 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class App extends React.Component {
-  render() {
-    return <Button>I <Heart /> React</Button>
+  constructor() {
+    super();
+
+    this.state = {currentEvent: '---'}
+    this.update = this.update.bind(this)
   }
-}
 
-const Button = (props) => (
-  <button>{props.children}</button>
-)
+  update(e) {
+    this.setState({
+      currentEvent: e.type
+    })
+  }
 
-class Heart extends React.Component {
   render() {
-    return <span>&hearts;</span>
+    return (
+      <div>
+        <h1>{this.state.currentEvent}</h1>
+        <textarea
+          onKeyPress={this.update}
+          onCopy={this.update}
+          onCut={this.update}
+          onPaste={this.update}
+          onFocus={this.update}
+          onBlur={this.update}
+          // onMouseDown={this.update}
+          // onMouseUp={this.update}
+          onDoubleClick={this.update}
+          // onTouchStart={this.update}
+          // onTouchMove={this.update}
+          // onTouchEnd={this.update}
+          cols="30" rows="5" />
+      </div>
+    )
   }
 }
 
