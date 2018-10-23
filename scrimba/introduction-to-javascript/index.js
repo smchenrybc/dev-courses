@@ -3,30 +3,28 @@
  */
 
 /*
-Relational Operators
+Relational Operators (Challenge)
  */
 
-// relational operators are
-// used for comparison and
-// return true or false.
+// here, we're practicing
+// the equals (==) and not equals (!=)
+// operators, but also utilizing
+// the value/type-checking (== vs. ===)
 
-let example1 = 10;
-let example2 = 15;
+// true – equal in value and type
+let example1 = 5 === 5;
 
-console.log(example1 >= example2); // false
+// true – values are equal
+let example2 = 5 == '5';
 
-// double equals versus single equals:
-// double equal checks that value and
-// type are equal, single just checks values
+// false – values are equal
+let example3 = 6 != '6';
 
-console.log(typeof example1); // number
-console.log(typeof example2); // number
+// true – values are equal, but types are not
+let example4 = 7 !== '7';
 
-example1 = 10; // number
-example2 = '10'; // string
-
-// are the two values equal?
-console.log(example1 == example2);
-
-// are values and types equal?
-console.log(example1 === example2);
+// log
+console.log(example1);
+console.log(example2);
+console.log(example3);
+console.log(example4);
