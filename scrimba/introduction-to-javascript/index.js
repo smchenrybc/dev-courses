@@ -3,23 +3,27 @@
  */
 
 /*
-Increment & Decrement
+Increment & Decrement (Challenge)
  */
 
-let example1 = 1;
-
-// example1 = example1 + 1;
-
-// add
+let example1 = 5;
 example1++;
 
-// subtract
-example1--;
+console.log(example1); // 6
 
-console.log(example1);
+let example2 = 5;
+++example2;
 
-// example1 = example1 + 5;
+console.log(example2); // 6
 
-example1 += 5;
+// these look like they return
+// the same values, but they actually don't
 
-console.log(example1);
+let example3 = 5;
+let example4 = 5;
+
+// this doesn't iterate in one line
+console.log(example3++);
+
+// this does
+console.log(++example4);
