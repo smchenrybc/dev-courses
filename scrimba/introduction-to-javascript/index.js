@@ -3,41 +3,34 @@
  */
 
 /*
-Booleans (Challenge)
+Arrays
  */
 
-let example1 = false;
-let example2 = true;
-let example3 = null;
-let example4 = undefined;
-let example5 = '';
-let example6 = NaN;
-let example7 = -5;
-let example8 = 0;
+let example1 = [];
 
-// guess the output:
-console.log(Boolean(example1)); // false
-console.log(Boolean(example2)); // true
-console.log(Boolean(example3)); // false
-console.log(Boolean(example4)); // false
-console.log(Boolean(example5)); // false
-console.log(Boolean(example6)); // false
-console.log(Boolean(example7)); // false
-console.log(Boolean(example8)); // true
+let example2 = [1, 2, 3];
 
-// answers:
-// 1: ✔
-// 2: ✔
-// 3: ✔
-// 4: ✔
-// 5: ✔
-// 6: ✔
-// 7: ✖
-// 8: ✖
+// an array is an object
+console.log(typeof example1); // object
 
-// negative numbers are true
-// because it's not checking
-// that they are positive, but
-// that they are non-zero.
+// length
+console.log(example2.length);
 
-// zero is a falsy value
+// arrays are zero-indexed
+console.log(example2[0]);
+
+// undefined
+console.log(example2[3]);
+
+/*
+Methods
+ */
+
+// add value:
+// push()
+
+// remove a value:
+// pop()
+
+// iterate:
+// forEach()
