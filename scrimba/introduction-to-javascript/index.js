@@ -3,44 +3,39 @@
  */
 
 /*
-Arrays (Challenge)
+Objects
  */
 
-let example1 = ['Sean', 5, true];
-
-let example2 = example1;
-
-example2.push(11);
+let example1 = {
+  firstName: 'Sean',
+  lastName: 'McHenry',
+  address: {
+    city: 'Portsmouth',
+    state: 'NH'
+  },
+  age: 33,
+  cats: ['Sly', 'Louie']
+}
 
 console.log(example1);
-console.log(example2);
-
-// they're identical!
-
-// when you push to arrays
-// you're actually pushing to
-// references of the arrays
+console.log(typeof(example1));
 
 
-let example3 = ['McHenry', 4, false];
+console.log(`${example1.firstName} ${example1.lastName}`);
 
-let example4 = [...example3];
+console.log(`${example1.address.city}, ${example1.address.state}`);
 
-example4.push(11);
+console.log(example1.cats);
 
-console.log(example3);
-console.log(example4);
-
-// now examples 3 and 4
-// have different output!
-
-let example5 = ['Keller', 3, true];
-
-let example6 = example5.map((element) => {
-  return element;
+example1.cats.forEach(cat => {
+  console.log(cat);
 });
 
-example6.push(11);
+// print the keys:
+console.log(Object.keys(example1));
 
-console.log(example5);
-console.log(example6);
+// print the values:
+console.log(Object.values(example1));
+
+// check for key
+console.log(example1.hasOwnProperty('firstName'));
