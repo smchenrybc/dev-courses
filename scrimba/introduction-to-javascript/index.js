@@ -3,27 +3,29 @@
  */
 
 /*
-For Loop
+While & Do While
  */
 
-let total = 5;
+let count = 1;
 
-// count to five!
-for (let x = 1; x <= total; x++) {
-  console.log(x);
+// count to 20!
+while (count <= 20) {
+  console.log(count);
+  count++;
 }
 
-let newTotal = 0;
+// do while loop will run
+// at least once vs. while loop
+// which might not run at all
 
-for (let x = 1; x <= total; x++) {
-  newTotal += x;
+do {
+  count++;
+
+  if (count >= 20) {
+    break;
+  }
 }
-console.log(newTotal); // 1 + 2 + 3 + 4 + 5 = 15
 
-let numTotal = 0;
-let numArray = [10, 20, 30, 40, 50];
+while (false);
 
-for (let i = 0; i < numArray.length; i++) {
-  numTotal += numArray[i];
-}
-console.log(numTotal);
+console.log(count);
