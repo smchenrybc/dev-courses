@@ -2,10 +2,26 @@
  * index.js
  */
 
-// deprecated
-// var example = true;
+/*
+Strings
+ */
 
-let example = 'Sean';
-example = 'McHenry';
+let firstName = 'Sean';
+let lastName = 'McHenry';
 
-console.log(example);
+// let name = firstName + ' ' + lastName;
+let name = `${firstName} ${lastName}`;
+
+// methods:
+// trim()
+// toLowerCase
+// toUpperCase
+// split
+
+// properties:
+// length
+
+console.log(name);
+
+let vals = name.split(' ');
+console.log(vals);
