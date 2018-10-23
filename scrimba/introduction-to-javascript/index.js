@@ -3,29 +3,14 @@
  */
 
 /*
-While & Do While
+Functions
  */
 
-let count = 1;
-
-// count to 20!
-while (count <= 20) {
-  console.log(count);
-  count++;
+function add(num1, num2) {
+  return num1 + num2;
 }
 
-// do while loop will run
-// at least once vs. while loop
-// which might not run at all
-
-do {
-  count++;
-
-  if (count >= 20) {
-    break;
-  }
-}
-
-while (false);
-
-console.log(count);
+// invoke
+console.log(add(5, 5));
+console.log(add(10, 10));
+console.log(add(15, 15));
