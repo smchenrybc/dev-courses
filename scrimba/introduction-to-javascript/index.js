@@ -3,15 +3,24 @@
  */
 
 /*
-Strings
+Numbers
  */
 
-let firstName = 'Sean';
-let lastName = 'McHenry';
+// let example = 7;
+let example = 7.7777;
 
-// old approach:
-// const fullName = firstName + ' ' + lastName;
+// number methods:
+// typeof
+// parseInt()
+// parseFloat()
+// toFixed()
 
-const fullName = `${firstName} ${lastName}`;
 
-console.log(fullName);
+console.log(typeof example);
+
+console.log(parseInt(example));
+
+console.log(parseFloat(example));
+
+// round it:
+console.log(example.toFixed(3));
