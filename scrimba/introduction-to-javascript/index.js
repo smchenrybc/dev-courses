@@ -9,19 +9,9 @@ Strings
 let firstName = 'Sean';
 let lastName = 'McHenry';
 
-// let name = firstName + ' ' + lastName;
-let name = `${firstName} ${lastName}`;
+// old approach:
+// const fullName = firstName + ' ' + lastName;
 
-// methods:
-// trim()
-// toLowerCase
-// toUpperCase
-// split
+const fullName = `${firstName} ${lastName}`;
 
-// properties:
-// length
-
-console.log(name);
-
-let vals = name.split(' ');
-console.log(vals);
+console.log(fullName);
