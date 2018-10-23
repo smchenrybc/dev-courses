@@ -3,27 +3,35 @@
  */
 
 /*
-Increment & Decrement (Challenge)
+If, Else If, Else, And & Or
  */
 
-let example1 = 5;
-example1++;
+// in this lesson we're working
+// with what's called "control flow"
 
-console.log(example1); // 6
+let example = 5;
 
-let example2 = 5;
-++example2;
+// true
+if (example >= 4) {
+  console.log(`It's greater!`);
+}
 
-console.log(example2); // 6
+// true
+if (example === 5) {
+  console.log(`Yes, they're equal!`);
+}
 
-// these look like they return
-// the same values, but they actually don't
+// false
+if (example === 6) {
+  console.log('Yes, it equals!');
+} else if (example === 4) {
+  console.log('This is equal!');
+} else {
+  console.log('Neither was equal.');
+}
 
-let example3 = 5;
-let example4 = 5;
-
-// this doesn't iterate in one line
-console.log(example3++);
-
-// this does
-console.log(++example4);
+if (example === 6 || false === true) {
+  console.log('One or both are true.');
+} else {
+  console.log("Neither is true.");
+}
