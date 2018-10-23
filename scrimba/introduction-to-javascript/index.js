@@ -3,11 +3,22 @@
  */
 
 /*
-If, Else If, Else, And & Or (Challenge)
+Switch
  */
 
-console.log(10 === 10 && 5 < 4); // false
+let studentAnswer = 'D';
 
-console.log(10 === 10 || 5 < 4); // true (one is true)
-
-console.log((5 >= 5 || 4 > 4) && 3 + 2 === 5); // true
+// switch is an if/else if statement
+switch(studentAnswer) {
+  case 'A':
+    console.log('A is wrong!');
+    break;
+  case 'B':
+    console.log('B is wrong!');
+    break;
+  case 'C':
+    console.log('C is correct!');
+    break;
+  default:
+    console.log('Please answer A to C!');
+}
