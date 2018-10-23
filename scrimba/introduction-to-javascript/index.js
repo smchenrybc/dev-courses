@@ -3,28 +3,23 @@
  */
 
 /*
-Relational Operators (Challenge)
+Increment & Decrement
  */
 
-// here, we're practicing
-// the equals (==) and not equals (!=)
-// operators, but also utilizing
-// the value/type-checking (== vs. ===)
+let example1 = 1;
 
-// true – equal in value and type
-let example1 = 5 === 5;
+// example1 = example1 + 1;
 
-// true – values are equal
-let example2 = 5 == '5';
+// add
+example1++;
 
-// false – values are equal
-let example3 = 6 != '6';
+// subtract
+example1--;
 
-// true – values are equal, but types are not
-let example4 = 7 !== '7';
-
-// log
 console.log(example1);
-console.log(example2);
-console.log(example3);
-console.log(example4);
+
+// example1 = example1 + 5;
+
+example1 += 5;
+
+console.log(example1);
