@@ -3,34 +3,44 @@
  */
 
 /*
-Arrays
+Arrays (Challenge)
  */
 
-let example1 = [];
+let example1 = ['Sean', 5, true];
 
-let example2 = [1, 2, 3];
+let example2 = example1;
 
-// an array is an object
-console.log(typeof example1); // object
+example2.push(11);
 
-// length
-console.log(example2.length);
+console.log(example1);
+console.log(example2);
 
-// arrays are zero-indexed
-console.log(example2[0]);
+// they're identical!
 
-// undefined
-console.log(example2[3]);
+// when you push to arrays
+// you're actually pushing to
+// references of the arrays
 
-/*
-Methods
- */
 
-// add value:
-// push()
+let example3 = ['McHenry', 4, false];
 
-// remove a value:
-// pop()
+let example4 = [...example3];
 
-// iterate:
-// forEach()
+example4.push(11);
+
+console.log(example3);
+console.log(example4);
+
+// now examples 3 and 4
+// have different output!
+
+let example5 = ['Keller', 3, true];
+
+let example6 = example5.map((element) => {
+  return element;
+});
+
+example6.push(11);
+
+console.log(example5);
+console.log(example6);
