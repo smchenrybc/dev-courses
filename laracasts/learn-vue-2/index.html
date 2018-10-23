@@ -9,13 +9,17 @@
 </head>
 
 <body>
-  <div id="app">
+  <div id="root">
+    <ul>
+      <!-- <li v-for="name in names">{{ name }}</li> -->
+
+      <li v-for="name in names" v-text="name"></li>
+    </ul>
+
     <form class="pure-form">
       <fieldset>
-        <input id="input" type="text" v-model="message">
-        <button class="pure-button pure-button-primary" type="submit">Submit</button>
-
-        <p>The value of input is <span>{{ message }}</span>.</p>
+        <input id="input" type="text">
+        <button id="button" class="pure-button">Submit</button>
       </fieldset>
     </form>
   </div>

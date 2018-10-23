@@ -4,17 +4,24 @@
 
 :root {
   --banana: #FDF5A4;
+  --dark-gray: #404040;
+  --light-gray: #EEE;
 }
 
 html, body {
   min-height: 100%;
 }
+html {
+  font-size: 16px;
+}
 body {
   padding: 30px;
-  background-color: #EEE;
+  color: var(--dark-gray);
+  font-family: sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.45;
+  background-color: white;
 }
-
-#app form span {
-  padding: 0.25em 0.375em;
-  background-color: var(--banana);
+p {
+  margin: 0 0 1.3rem;
 }

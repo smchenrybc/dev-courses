@@ -2,15 +2,28 @@
  * index.js
  */
 
-// let data = {
-//   message: 'Hello, world!'
-// }
-
-// document.querySelector('#input').value = data.message;
-
-new Vue({
-  el: '#app',
+var app = new Vue({
+  el: '#root',
   data: {
-    message: 'Hello, world!'
+    names: ['Amy', 'Hiroko', 'Logan', 'Sean']
+  },
+  mounted() {
+    // alert('Click to proceed.');
+
+    document.querySelector('#button').addEventListener('click', (event) => {
+      // prevent submit
+      event.preventDefault();
+
+      // set vars
+      let input = document.querySelector("#input");
+      let name = input.value;
+
+      // add name to array
+      app.names.push(name);
+
+      // clear input
+      input.value = '';
+    });
+
   }
 });
