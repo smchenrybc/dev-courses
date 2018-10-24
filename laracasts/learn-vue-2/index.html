@@ -16,10 +16,10 @@
       <li v-for="name in names" v-text="name"></li>
     </ul>
 
-    <form class="pure-form">
+    <form class="pure-form" @submit.prevent="submitFunc">
       <fieldset>
-        <input id="input" type="text">
-        <button id="button" class="pure-button">Submit</button>
+        <input id="input" type="text" v-model="newName">
+        <button class="pure-button" @click="addName">Submit</button>
       </fieldset>
     </form>
   </div>
