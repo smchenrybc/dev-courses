@@ -5,15 +5,21 @@
 var app = new Vue({
   el: "#root",
   data: {
-    newName: '',
-    names: ["Amy", "Hiroko", "Logan", "Sean"]
+    titleClass: 'color-red',
+    buttonTitle: 'Button title set using Vue.js',
+    isLoading: false,
+    disabled: false
   },
   methods: {
-    addName() {
-      // add the name
-      this.names.push(this.newName);
-      // clear the input field
-      this.newName = '';
+    method() {
+
+    },
+    toggleClass() {
+      if (this.isLoading === false) {
+        this.isLoading = true;
+      } else if (this.isLoading === true) {
+        this.isLoading = false;
+      }
     }
   }
 });
