@@ -6,25 +6,22 @@
   <link rel="stylesheet" href="main.css">
   <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
   <script src="https://unpkg.com/vue@2.1.3/dist/vue.js"></script>
-  <style>
-    .color-blue { color: blue; }
-    .color-red { color: red; }
-    .is-loading {
-      color: white;
-      background-color: rebeccapurple;
-    }
-  </style>
 </head>
 
 <body>
   <div id="root">
-    <h1 :class="titleClass">I'm a title</h1>
+    <!-- <h1 v-text="new Date()"></h1> -->
+    <h1 v-text="">{{ reversedMessage }}</h1>
 
-    <button class="pure-button pure-button-primary" @click="method" :title="buttonTitle">Button #1</button>
+    <h2>All tasks</h2>
+    <ul>
+      <li v-for="task in tasks" v-text="task.description"></li>
+    </ul>
 
-    <button class="pure-button" :class="{ 'is-loading': isLoading }" @click="toggleClass">Button #2</button>
-
-    <button class="pure-button" :disabled="disabled" @click="disabled = !disabled">Button #3</button>
+    <h2>Incomplete tasks</h2>
+    <ul>
+      <li v-for="task in incompleteTasks" v-text="task.description"></li>
+    </ul>
   </div>
 
   <script src="index.js"></script>
