@@ -2,41 +2,31 @@
  * index.js
  */
 
-// global
-Vue.component('task-list', {
-  template: `
-    <ul>
-      <task v-for="task in tasks">{{ task.task }}</task>
-    </ul>
-  `,
-
+Vue.component('message', {
+  props: ['title', 'body'],
   data() {
     return {
-      tasks: [
-        {
-          task: 'Drive home',
-          complete: true
-        },
-        {
-          task: 'Go to the store',
-          complete: false
-        },
-        {
-          task: 'Finish screencast',
-          complete: false
-        },
-        {
-          task: 'Watch Netflix',
-          complete: false
-        }
-      ]
+      isVisible: true
     }
-  }
-});
+  },
+  template: `
+    <article class="message" v-show="isVisible">
+      <div class="message-header">
+        {{ title }}
 
-// global
-Vue.component('task', {
-  template: '<li><slot></slot></li>'
+        <button type="button" @click="isVisible = false">&times;</button>
+      </div>
+
+      <div class="message-body">
+        {{ body }}
+      </div>
+    </article>
+  `,
+  methods: {
+    // hideModal() {
+    //   this.isVisible = false;
+    // }
+  }
 });
 
 var app = new Vue({
