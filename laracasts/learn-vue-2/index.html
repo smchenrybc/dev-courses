@@ -10,25 +10,11 @@
 
 <body>
   <div id="root" class="container">
-    <!-- Bulma HTML -->
-    <!-- <article class="message">
-      <div class="message-header">Hello, world!</div>
-      <div class="message-body">
-        <p>Exercitation et irure nostrud cupidatat aliqua deserunt est cupidatat et incididunt. Ut et ullamco aute ipsum labore aliqua in quis do quis ea est anim. In tempor do sunt cillum ex cupidatat ullamco ipsum. Excepteur nostrud sunt ad excepteur.</p>
-      </div>
-    </article> -->
+    <modal v-if="showModal" @close="showModal = false">
+      <p>Aliqua tempor culpa nostrud in in labore cupidatat minim ex ex ut. Eu veniam labore tempor est aute qui in dolore ex. Dolore proident sed commodo exercitation enim nulla et irure pariatur laborum tempor cillum. Lorem ipsum culpa ullamco in fugiat occaecat dolor laborum eu excepteur irure officia dolore reprehenderit qui veniam sunt.</p>
+    </modal>
 
-    <!-- Vue component -->
-    <message title="Hello, world!" body="Dolore sit ipsum laborum ex sunt est labore. Pariatur cillum eu anim velit laborum aliquip ut qui. Aute sint pariatur
-    consectetur duis amet culpa mollit cillum velit commodo. Qui do qui cillum anim dolore excepteur ad est reprehenderit
-    occaecat tempor. Et labore dolore dolore minim ex dolor Lorem culpa nisi est laborum. Est et eu cupidatat id magna
-    magna amet duis tempor in ad deserunt sit. Voluptate irure amet nulla est eiusmod et ex ex quis anim duis esse labore."></message>
-
-    <!-- Vue component -->
-    <message title="Hello, universe!" body="Irure irure est aute elit do. Officia ad do deserunt amet quis elit officia enim labore esse dolore occaecat. Enim duis
-    ea enim labore enim dolor non sit eu. Qui nulla labore laborum incididunt fugiat occaecat eiusmod officia aliquip
-    laboris. Nulla sint do veniam voluptate sunt minim nisi magna eiusmod enim excepteur. Duis anim tempor consequat
-    adipisicing commodo ad quis sit ad qui officia."></message>
+    <button class="button is-medium is-link" @click="showModal = true">Show modal</button>
   </div>
 
   <script src="index.js"></script>
