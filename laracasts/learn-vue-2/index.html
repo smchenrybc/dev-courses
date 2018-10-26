@@ -10,11 +10,27 @@
 
 <body>
   <div id="root" class="container">
-    <modal v-if="showModal" @close="showModal = false">
-      <p>Aliqua tempor culpa nostrud in in labore cupidatat minim ex ex ut. Eu veniam labore tempor est aute qui in dolore ex. Dolore proident sed commodo exercitation enim nulla et irure pariatur laborum tempor cillum. Lorem ipsum culpa ullamco in fugiat occaecat dolor laborum eu excepteur irure officia dolore reprehenderit qui veniam sunt.</p>
-    </modal>
+    <tabs>
+      <tab name="Pictures" :selected="true">
+        <p>Adipisicing sunt cupidatat enim culpa. Laboris proident non cupidatat dolor consequat eu consectetur consequat sit dolor Lorem do exercitation. Officia quis aute exercitation aliquip nulla dolore Lorem.</p>
+      </tab>
 
-    <button class="button is-medium is-link" @click="showModal = true">Show modal</button>
+      <tab name="Music">
+        <p>Amet ex reprehenderit amet adipisicing eiusmod. Laborum do laborum amet nostrud consequat reprehenderit nostrud id duis eiusmod do tempor magna. Velit tempor voluptate consequat aliquip. Ut ut officia ullamco in elit culpa dolore incididunt dolor labore pariatur non officia dolor. Minim tempor exercitation est exercitation enim voluptate deserunt veniam quis do culpa sunt sunt aliquip. Sint non do nisi consequat dolor fugiat commodo mollit dolor veniam. Enim eiusmod cillum esse nostrud do fugiat velit est.</p>
+      </tab>
+
+      <tab name="Videos">
+        <p>Minim sit qui nostrud amet Lorem cillum qui mollit cupidatat eiusmod enim id. Incididunt nulla culpa consectetur ad. Do elit labore et velit esse ullamco id occaecat cupidatat est adipisicing velit nulla culpa. Commodo ex pariatur est amet. Ea tempor veniam occaecat adipisicing eu sint est culpa id minim fugiat duis commodo sint.</p>
+      </tab>
+
+      <tab name="Documents">
+        <p>Elit Lorem occaecat mollit ullamco voluptate sint tempor sunt. Cillum esse proident consectetur adipisicing occaecat laborum sit dolore officia aute minim. Elit enim ex laborum commodo sint ipsum anim quis non do cupidatat magna nisi. Nisi culpa id nisi commodo ipsum. Nisi deserunt laboris anim labore nulla veniam esse deserunt officia tempor do culpa proident. Adipisicing cillum laborum tempor sint est ipsum.</p>
+      </tab>
+
+      <tab name="My Stuff">
+        <p>Consequat consequat elit culpa incididunt minim occaecat commodo commodo ex. Ut ullamco sunt est do sit aliqua officia eiusmod incididunt aliqua qui. Ad dolore aliqua aute sunt anim qui laboris aliquip excepteur. Laboris anim Lorem cillum veniam reprehenderit. Minim proident nisi consectetur ipsum Lorem velit nisi anim sunt. Sit id duis adipisicing aliquip. Consectetur sunt ea culpa aliqua.</p>
+      </tab>
+    </tabs>
   </div>
 
   <script src="index.js"></script>
