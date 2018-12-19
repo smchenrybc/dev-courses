@@ -149,7 +149,7 @@ eval("\nvar content = __webpack_require__(/*! !../node_modules/css-loader/dist/c
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("/**\n * main.js\n */\n\n__webpack_require__(/*! ./main.css */ \"./src/main.css\");\n\n\n//# sourceURL=webpack:///./src/main.js?");
+eval("function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\n/**\n * main.js\n */\n__webpack_require__(/*! ./main.css */ \"./src/main.css\"); // class Form {\n//   constructor() {\n//     alert('Yay! Form classes are great no matter what JS developers say!');\n//   }\n// }\n\n\nvar Form = function Form() {\n  _classCallCheck(this, Form);\n\n  var num_array = [5, 10, 15];\n  var numbers = num_array.map(function (number) {\n    return number * 2;\n  });\n  console.log(numbers);\n};\n\nnew Form();\n\n//# sourceURL=webpack:///./src/main.js?");
 
 /***/ })
 
