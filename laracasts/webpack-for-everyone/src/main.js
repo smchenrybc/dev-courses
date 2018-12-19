@@ -2,4 +2,4 @@
  * main.js
  */
 
-alert('Another alert!');
+require('./main.css');
