@@ -24,9 +24,32 @@ module.exports = {
       {
         test: /\.(sass|scss)$/,
         use: ExtractTextPlugin.extract({
+          // Approach #1:
+          // use: [
+          //   {
+          //     loader: 'css-loader',
+          //     options: {
+          //       url: false
+          //     }
+          //   },
+          //   'sass-loader'
+          // ],
+
+          // Approach #2:
+          // use: ['raw-loader', 'sass-loader'],
+
+          // Approach #3:
           use: ['css-loader', 'sass-loader'],
-          fallback: 'style-loader'
+
+          fallback: 'file-loader'
         })
+      },
+      {
+        test: /\.(gif|jpg|png|svg)$/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]'
+        }
       },
       {
         test: /\.js$/,
@@ -43,9 +66,3 @@ module.exports = {
     })
   ]
 }
-
-// if (inProduction) {
-//   module.exports.plugins.push(
-//     new webpack.optimize.UglifyJsPlugin()
-//   );
-// }
