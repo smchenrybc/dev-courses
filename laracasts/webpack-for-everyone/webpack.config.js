@@ -2,26 +2,31 @@
  * webpack.config.js
  */
 
-var webpack = require('webpack');
-var path = require('path');
+var webpack = require("webpack");
+var path = require("path");
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var inProduction = (process.env.NODE_ENV === 'production');
 
 module.exports = {
-  entry: './src/main.js',
+  entry: {
+    app: [
+      './src/main.js',
+      './src/main.scss'
+    ]
+  },
   mode: 'development',
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: 'bundle.js'
+    filename: '[name].js'
   },
   module: {
     rules: [
       {
         test: /\.(sass|scss)$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
-      },
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: ExtractTextPlugin.extract({
+          use: ['css-loader', 'sass-loader'],
+          fallback: 'style-loader'
+        })
       },
       {
         test: /\.js$/,
@@ -30,11 +35,17 @@ module.exports = {
       }
     ]
   },
-  plugins: []
+  plugins: [
+    new ExtractTextPlugin('[name].css'),
+
+    new webpack.LoaderOptionsPlugin({
+      minimize: inProduction
+    })
+  ]
 }
 
-if (inProduction) {
-  module.exports.plugins.push(
-    new config.optimization.minimize()
-  );
-}
+// if (inProduction) {
+//   module.exports.plugins.push(
+//     new webpack.optimize.UglifyJsPlugin()
+//   );
+// }
