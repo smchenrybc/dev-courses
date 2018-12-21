@@ -4,7 +4,9 @@
 
 var webpack = require("webpack");
 var path = require("path");
+var glob = require("glob");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var PurifyCSSPlugin = require("purifycss-webpack");
 var inProduction = (process.env.NODE_ENV === 'production');
 
 module.exports = {
@@ -24,28 +26,12 @@ module.exports = {
       {
         test: /\.(sass|scss)$/,
         use: ExtractTextPlugin.extract({
-          // Approach #1:
-          // use: [
-          //   {
-          //     loader: 'css-loader',
-          //     options: {
-          //       url: false
-          //     }
-          //   },
-          //   'sass-loader'
-          // ],
-
-          // Approach #2:
-          // use: ['raw-loader', 'sass-loader'],
-
-          // Approach #3:
           use: ['css-loader', 'sass-loader'],
-
           fallback: 'file-loader'
         })
       },
       {
-        test: /\.(gif|jpg|png|svg)$/,
+        test: /\.(gif|jpeg|jpg|png|svg)$/,
         loader: 'file-loader',
         options: {
           name: '[name].[ext]'
@@ -60,6 +46,11 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin('[name].css'),
+
+    new PurifyCSSPlugin({
+      paths: glob.sync(path.join(__dirname, 'index.html')),
+      minimize: inProduction
+    }),
 
     new webpack.LoaderOptionsPlugin({
       minimize: inProduction
