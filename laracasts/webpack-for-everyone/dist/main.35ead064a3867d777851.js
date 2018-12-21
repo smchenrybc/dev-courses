@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/main.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -93,29 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("/**\n * main.js\n */\n// no longer need line below, because\n// stylesheet is now added as an\n// entry point in webpack.config.js.\n// require('./main.scss');\n\n//# sourceURL=webpack:///./src/main.js?");
-
-/***/ }),
-
-/***/ "./src/main.scss":
-/*!***********************!*\
-  !*** ./src/main.scss ***!
-  \***********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("// removed by extract-text-webpack-plugin\n\n//# sourceURL=webpack:///./src/main.scss?");
-
-/***/ }),
-
-/***/ 0:
-/*!*******************************************!*\
-  !*** multi ./src/main.js ./src/main.scss ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("__webpack_require__(/*! ./src/main.js */\"./src/main.js\");\nmodule.exports = __webpack_require__(/*! ./src/main.scss */\"./src/main.scss\");\n\n\n//# sourceURL=webpack:///multi_./src/main.js_./src/main.scss?");
+eval("/**\n * main.js\n */\nalert('Hello, world!');\n\n//# sourceURL=webpack:///./src/main.js?");
 
 /***/ })
 
