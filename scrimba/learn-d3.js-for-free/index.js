@@ -3,7 +3,7 @@
  */
 
 // dataset
-let dataset = [1, 2, 3, 4, 5];
+let dataset = [80, 100, 56, 120, 180, 30, 40, 120, 160];
 
 // other vars
 let svgWidth = 500,
@@ -16,26 +16,26 @@ let svg = d3.select('svg')
   .attr("width", svgWidth)
   .attr("height", svgHeight);
 
-// scale
+// x scale
+let xScale = d3.scaleLinear()
+  .domain([0, d3.max(dataset)])
+  .range([0, svgWidth - 5]);
+
+// y scale
 let yScale = d3.scaleLinear()
   .domain([0, d3.max(dataset)])
-  .range([0, svgHeight - 5]);
+  .range([svgHeight - 5, 0]);
 
-// bars
-let barChart = svg.selectAll("rect")
-  .data(dataset)
-  .enter()
-  .append("rect")
-  .attr("y", function(d) {
-    return svgHeight - yScale(d);
-  })
-  .attr("height", function(d) {
-    return yScale(d);
-  })
-  .attr("width", barWidth - barPadding)
-  .attr("transform", function(d, i) {
-    let translate = [barWidth * i, 0];
-    //  return "translate("+ translate +")";
-    return `translate(${translate})`;
-  })
-  .attr("fill", "#333");
+// axis vars
+let x_axis = d3.axisBottom().scale(xScale);
+let y_axis = d3.axisLeft().scale(yScale);
+
+svg.append("g")
+  .attr("transform", "translate(50, 10)")
+  .call(y_axis);
+
+let xAxisTranslate = svgHeight - 20;
+
+svg.append("g")
+  .attr("transform", `translate(50, ${xAxisTranslate})`)
+  .call(x_axis);
