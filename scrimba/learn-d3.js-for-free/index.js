@@ -2,31 +2,78 @@
  * index.js
  */
 
-var svgWidth = 600,
-    svgHeight = 500;
+var data = [
+  {
+    platform: "Windows",
+    percentage: 37.43
+  },
+  {
+    platform: "Android",
+    percentage: 36.49
+  },
+  {
+    platform: "iOS",
+    percentage: 13.16
+  },
+  {
+    platform: "OSX",
+    percentage: 6.22
+  },
+  {
+    platform: "Unknown",
+    percentage: 4.01
+  },
+  {
+    platform: "Linux",
+    percentage: 0.85
+  }
+];
+
+var svgWidth = 500,
+  svgHeight = 300,
+  radius = Math.min(svgWidth, svgHeight) / 2;
 
 var svg = d3.select("svg")
-    .attr("width", svgWidth)
-    .attr("height", svgHeight)
-    .attr("class", "svg-container")
+  .attr("width", svgWidth)
+  .attr("height", svgHeight);
 
-var line = svg.append("line")
-    .attr("x1", 75)
-    .attr("x2", 500)
-    .attr("y1", 50)
-    .attr("y2", 50)
-    .attr("stroke", "red")
-    .attr("stroke-width", 5)
+// create group to hold pie chart
+var g = svg.append("g")
+  .attr("transform", `translate(${radius}, ${radius})`);
 
-var rect = svg.append("rect")
-    .attr("x", 75)
-    .attr("y", 100)
-    .attr("width", 200)
-    .attr("height", 100)
-    .attr("fill", "#9B95FF")
+var color = d3.scaleOrdinal(d3.schemeCategory10);
 
-var circle = svg.append("circle")
-    .attr("cx", 150)
-    .attr("cy", 320)
-    .attr("r", 80)
-    .attr("fill", "#7CE8D5")
+var pie = d3.pie().value(function(d) {
+  return d.percentage;
+});
+
+var path = d3.arc()
+  .outerRadius(radius)
+  .innerRadius(0);
+
+var arc = g.selectAll("arc")
+  .data(pie(data))
+  .enter()
+  .append("g")
+  .attr("class", function(d) {
+    return d.data.platform.toLowerCase().replace(/\s/g, '');
+  });
+
+arc.append("path")
+  .attr("d", path)
+  .attr("fill", function(d) {
+    return color(d.data.percentage);
+  });
+
+var label = d3.arc()
+  .outerRadius(radius)
+  .innerRadius(0)
+
+arc.append("text")
+  .attr("transform", function(d) {
+    return `translate(${label.centroid(d)})`;
+  })
+  .attr("text-anchor", "middle")
+  .text(function(d) {
+    return `${d.data.platform}: ${d.data.percentage}%`;
+  });
