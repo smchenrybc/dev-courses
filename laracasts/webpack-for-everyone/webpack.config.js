@@ -38,6 +38,15 @@ module.exports = {
       minimize: inProduction
     }),
 
+    function() {
+      this.plugin('done', stats => {
+        require('fs').writeFileSync(
+          path.join(__dirname, 'dist/manifest.json'),
+          JSON.stringify(stats.toJson().assetsByChunkName)
+        )
+      });
+    },
+
     new CleanWebpackPlugin(['dist'], {
         root: __dirname,
         verbose: true,
