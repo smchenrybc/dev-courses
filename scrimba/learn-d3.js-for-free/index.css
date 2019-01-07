@@ -57,27 +57,4 @@ p {
 /*
 Styles
  */
-.pie-chart {
-  padding: 50px;
-}
-.pie-chart g g {
-  position: relative;
-}
-.pie-chart g.windows text {
-  transform: translate(120px, -10px);
-}
-/* .pie-chart g.android text {
-  transform: translate(0, 0);
-} */
-.pie-chart g.ios text {
-  transform: translate(-85px, -15px);
-}
-.pie-chart g.osx text {
-  transform: translate(10px, -60px);
-}
-.pie-chart g.unknown text {
-  transform: translate(45px, -100px);
-}
-.pie-chart g.linux text {
-  transform: translate(55px, -130px);
-}
+.line-chart {}
