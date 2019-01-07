@@ -2,40 +2,31 @@
  * index.js
  */
 
-// dataset
-let dataset = [80, 100, 56, 120, 180, 30, 40, 120, 160];
+var svgWidth = 600,
+    svgHeight = 500;
 
-// other vars
-let svgWidth = 500,
-    svgHeight = 300,
-    barPadding = 5;
-let barWidth = (svgWidth / dataset.length);
+var svg = d3.select("svg")
+    .attr("width", svgWidth)
+    .attr("height", svgHeight)
+    .attr("class", "svg-container")
 
-// set SVG size:
-let svg = d3.select('svg')
-  .attr("width", svgWidth)
-  .attr("height", svgHeight);
+var line = svg.append("line")
+    .attr("x1", 75)
+    .attr("x2", 500)
+    .attr("y1", 50)
+    .attr("y2", 50)
+    .attr("stroke", "red")
+    .attr("stroke-width", 5)
 
-// x scale
-let xScale = d3.scaleLinear()
-  .domain([0, d3.max(dataset)])
-  .range([0, svgWidth - 5]);
+var rect = svg.append("rect")
+    .attr("x", 75)
+    .attr("y", 100)
+    .attr("width", 200)
+    .attr("height", 100)
+    .attr("fill", "#9B95FF")
 
-// y scale
-let yScale = d3.scaleLinear()
-  .domain([0, d3.max(dataset)])
-  .range([svgHeight - 5, 0]);
-
-// axis vars
-let x_axis = d3.axisBottom().scale(xScale);
-let y_axis = d3.axisLeft().scale(yScale);
-
-svg.append("g")
-  .attr("transform", "translate(50, 10)")
-  .call(y_axis);
-
-let xAxisTranslate = svgHeight - 20;
-
-svg.append("g")
-  .attr("transform", `translate(50, ${xAxisTranslate})`)
-  .call(x_axis);
+var circle = svg.append("circle")
+    .attr("cx", 150)
+    .attr("cy", 320)
+    .attr("r", 80)
+    .attr("fill", "#7CE8D5")
