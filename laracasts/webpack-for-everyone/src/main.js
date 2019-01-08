@@ -2,4 +2,8 @@
  * main.js
  */
 
-alert('Hello, world!');
+// image
+import zelda from './zelda.png';
+
+// styles
+require('./main.css');

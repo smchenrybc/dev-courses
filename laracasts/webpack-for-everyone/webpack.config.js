@@ -2,29 +2,52 @@
  * webpack.config.js
  */
 
-var webpack = require("webpack");
-var path = require("path");
-var CleanWebpackPlugin = require('clean-webpack-plugin');
-var inProduction = (process.env.NODE_ENV === 'production');
+// const nodeExternals = require("webpack-node-externals");
+const CleanWebpackPlugin = require("clean-webpack-plugin");
+const webpack = require("webpack");
+const path = require("path");
 
 module.exports = {
   entry: {
-    main: './src/main.js',
-    vendor: ['jquery']
+    main: "./src/main.js"
   },
-  mode: 'development',
   output: {
-    path: path.resolve(__dirname, './dist'),
-    filename: '[name].[chunkhash].js'
+    path: path.resolve(__dirname, "dist"),
+    filename: "[name].js"
   },
+  target: "node",
+  externals: "",
   module: {
     rules: [
       {
-        test: /\.(gif|jpeg|jpg|png|svg)$/,
-        loader: 'file-loader',
-        options: {
-          name: '[name].[ext]'
-        }
+        test: /\.css$/,
+        use: 'css-loader'
+      },
+      {
+        test: /\.(eot|ttf|woff|woff2)$/,
+        use: 'file-loader'
+      },
+      {
+        test: /\.(gif|jpe?g|png|svg)$/,
+        loaders: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "images/[name].[ext]"
+            }
+          },
+          {
+            loader: "img-loader",
+            options: {
+              plugins: [
+                require('imagemin-gifsicle')({}),
+                require('imagemin-mozjpeg')({}),
+                require('imagemin-optipng')({}),
+                require('imagemin-svgo')({})
+              ]
+            }
+          }
+        ]
       },
       {
         test: /\.js$/,
@@ -34,33 +57,10 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.LoaderOptionsPlugin({
-      minimize: inProduction
-    }),
-
-    function() {
-      this.plugin('done', stats => {
-        require('fs').writeFileSync(
-          path.join(__dirname, 'dist/manifest.json'),
-          JSON.stringify(stats.toJson().assetsByChunkName)
-        )
-      });
-    },
-
-    new CleanWebpackPlugin(['dist'], {
-        root: __dirname,
-        verbose: true,
-        dry: false
-      }
-    ),
-
-    function() {
-      this.plugin('done', stats => {
-        require('fs').writeFileSync(
-          path.join(__dirname, 'dist/manifest.json'),
-          JSON.stringify(stats)
-        )
-      })
-    }
+    new CleanWebpackPlugin("dist", {
+      root: __dirname,
+      verbose: true,
+      dry: false
+    })
   ]
-}
+};
