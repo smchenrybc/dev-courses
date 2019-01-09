@@ -2,21 +2,19 @@
  * webpack.config.js
  */
 
-// const nodeExternals = require("webpack-node-externals");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
-const webpack = require("webpack");
-const path = require("path");
+var path = require("path");
+var webpack = require("webpack");
+var inProduction = (process.env.NODE_ENV === 'production');
+var BuildManfiestPlugin = require('./build/plugins/BuildManfiestPlugin');
 
 module.exports = {
   entry: {
-    main: "./src/main.js"
+    main: './src/main.js'
   },
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "[name].js"
+    path: path.resolve(__dirname, './dist'),
+    filename: '[name].js'
   },
-  target: "node",
-  externals: "",
   module: {
     rules: [
       {
@@ -33,7 +31,7 @@ module.exports = {
           {
             loader: "file-loader",
             options: {
-              name: "images/[name].[ext]"
+              name: "images/[name].[hash].[ext]"
             }
           },
           {
@@ -57,10 +55,16 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin("dist", {
-      root: __dirname,
-      verbose: true,
-      dry: false
-    })
+    new webpack.LoaderOptionsPlugin({
+      minimize: inProduction
+    }),
+
+    new BuildManfiestPlugin()
   ]
-};
+}
+
+if (inProduction) {
+  module.exports.plugins.push(
+    new webpack.optimize.UglifyJsPlugin()
+  );
+}
