@@ -1,0 +1,10 @@
+# Main
+laravel/*
+
+# Views
+!laravel/resources/
+laravel/resources/*
+!laravel/resources/views/
+
+# Routes
+!laravel/routes/
