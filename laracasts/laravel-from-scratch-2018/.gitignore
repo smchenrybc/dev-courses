@@ -1,6 +1,11 @@
 # Main
 laravel/*
 
+# Migrations
+!laravel/database/
+laravel/database/*
+!laravel/database/migrations/
+
 # Views
 !laravel/resources/
 laravel/resources/*
