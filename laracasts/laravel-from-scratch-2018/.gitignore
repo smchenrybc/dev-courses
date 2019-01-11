@@ -1,6 +1,14 @@
 # Main
 laravel/*
 
+# Controllers
+!laravel/app/
+laravel/app/*
+!laravel/app/Http/
+laravel/app/Http/*
+!laravel/app/Http/Controllers
+laravel/app/Http/Controllers/Auth/
+
 # Migrations
 !laravel/database/
 laravel/database/*
