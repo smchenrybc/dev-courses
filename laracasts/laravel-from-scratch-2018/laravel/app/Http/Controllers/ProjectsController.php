@@ -13,6 +13,10 @@ class ProjectsController extends Controller
     return view('projects.index', compact('projects'));
   }
 
+  public function show() {
+
+  }
+
   public function create() {
     return view('projects.create');
   }
@@ -27,4 +31,34 @@ class ProjectsController extends Controller
 
     return redirect('/projects');
   }
+
+  public function edit($id) {
+    // return $id;
+
+    $project = Project::find($id);
+
+    return view('projects.edit', compact('project'));
+  }
+
+  public function update($id) {
+    // dd(request()->all());
+
+    $project = Project::find($id);
+
+    $project->title = request('title');
+    $project->description = request('description');
+
+    $project->save();
+
+    return redirect('/projects');
+  }
+
+  public function destroy($id) {
+    $project = Project::find($id);
+
+    $project->delete();
+
+    return redirect('/projects');
+  }
 }
+
