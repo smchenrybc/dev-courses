@@ -10,21 +10,17 @@ use App\Project;
 class ProjectTasksController extends Controller
 {
     public function store(Project $project) {
-        $attributes = request()->validate([
-            'description' => 'required|max:255']
+        $project->addTask(
+            request()->validate(['description' => 'required'])
         );
-
-        $project->addTask($attributes);
 
         return back();
     }
 
     public function update(Task $task) {
-        // dd(request()->all());
+        $method = request()->has('completed') ? 'complete' : 'incomplete';
 
-        $task->update([
-            'completed' => request()->has('completed')
-        ]);
+        $task->$method();
 
         return back();
     }
