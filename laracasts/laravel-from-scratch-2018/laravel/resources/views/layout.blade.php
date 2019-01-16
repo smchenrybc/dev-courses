@@ -5,7 +5,7 @@
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.css">
 </head>
 
-<body style="padding-top: 2rem;">
+<body style="padding: 30px;">
   <div class="container">
     @yield('content')
   </div>

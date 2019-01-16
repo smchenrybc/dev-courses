@@ -2,12 +2,19 @@
 <html>
 <head>
   <title></title>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.css">
 </head>
-<body>
-  <h1>Projects</h1>
+<body style="padding: 30px;">
+  <div class="container">
+    <h1 class="title">Projects</h1>
 
-  @foreach($projects as $project)
-    <li>{{ $project->title }}</li>
-  @endforeach
+    @foreach($projects as $project)
+      <li>
+        <a href="/projects/{{ $project->id }}">
+          {{ $project->title }}
+        </a>
+      </li>
+    @endforeach
+  </div>
 </body>
 </html>
