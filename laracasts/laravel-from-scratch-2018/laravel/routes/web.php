@@ -1,5 +1,7 @@
 <?php
 
+use App\Repositories\UserRepository;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,12 +13,8 @@
 |
 */
 
-app()->singleton('App\Services\Twitter', function () {
-  return new \App\Services\Twitter('kjaskdljls');
-});
-
-Route::get('/', function () {
-  dd(app('\App\Example'));
+Route::get('/', function (UserRepository $users) {
+  dd($users);
 
   return view('welcome');
 });
