@@ -11,7 +11,13 @@
 |
 */
 
+app()->singleton('App\Services\Twitter', function () {
+  return new \App\Services\Twitter('kjaskdljls');
+});
+
 Route::get('/', function () {
+  dd(app('\App\Example'));
+
   return view('welcome');
 });
 
