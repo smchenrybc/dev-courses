@@ -26,4 +26,5 @@ laravel/resources/*
 
 
 ## AUTH-EXAMPLE ##
-auth-example/
+auth-example/*
+!auth-example/routes/
