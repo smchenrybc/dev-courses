@@ -23,8 +23,3 @@ laravel/resources/*
 
 # Routes
 !laravel/routes/
-
-
-## AUTH-EXAMPLE ##
-auth-example/*
-!auth-example/routes/
