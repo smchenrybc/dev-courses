@@ -33,13 +33,15 @@
     </div>
   </form>
 
+  @include('errors')
+
   <form method="POST" action="/projects/{{ $project->id }}">
     @method('DELETE')
     @csrf
 
     <div class="field">
       <div class="control">
-        <button type="submit" class="button is-danger">Delete Project</button>
+        <button type="submit" class="button">Delete Project</button>
       </div>
     </div>
   </form>
