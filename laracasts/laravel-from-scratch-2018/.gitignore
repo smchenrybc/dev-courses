@@ -10,6 +10,8 @@ laravel/app/*
 laravel/app/Http/*
 !laravel/app/Http/Controllers
 laravel/app/Http/Controllers/Auth/
+!laravel/app/Mail
+!laravel/app/Services
 
 # Migrations
 !laravel/database/

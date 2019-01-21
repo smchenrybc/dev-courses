@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Project;
-use App\Services\Twitter;
+use App\Mail\ProjectCreated;
+use Illuminate\Support\Facades\Mail;
 
 class ProjectsController extends Controller
 {
@@ -19,21 +20,6 @@ class ProjectsController extends Controller
   }
 
   public function show(Project $project) {
-    // abort_if()
-    // abort_unless()
-
-    // $this->authorize('view', $project);
-
-    // if(\Gate::denies('view', $project)) {
-    //   abort(403);
-    // }
-
-    // abort_if(\Gate::denies('view', $project), 403);
-
-    // abort_unless(\Gate::allows('view', $project), 403);
-
-    $this->authorize('update', $project);
-
     return view('projects.show', compact('project'));
   }
 
@@ -47,10 +33,13 @@ class ProjectsController extends Controller
       'description' => ['required', 'min:3']
     ]);
 
-    // add owner ID
     $attributes['owner_id'] = auth()->id();
 
-    Project::create($attributes);
+    $project = Project::create($attributes);
+
+    \Mail::to('sean@browndesign.com')->send(
+      new ProjectCreated($project)
+    );
 
     return redirect('/projects');
   }
@@ -60,16 +49,12 @@ class ProjectsController extends Controller
   }
 
   public function update(Project $project) {
-    $this->authorize('update', $project);
-
     $project->update(request(['title', 'description']));
 
     return redirect('/projects');
   }
 
   public function destroy(Project $project) {
-    $this->authorize('update', $project);
-
     $project->delete();
 
     return redirect('/projects');
