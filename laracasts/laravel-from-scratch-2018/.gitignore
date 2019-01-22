@@ -13,6 +13,7 @@ laravel/app/Http/*
 laravel/app/Http/Controllers/Auth/
 !laravel/app/Listeners
 !laravel/app/Mail
+!laravel/app/Notifications
 !laravel/app/Providers
 !laravel/app/Services
 
