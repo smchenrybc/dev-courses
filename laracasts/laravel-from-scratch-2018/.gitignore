@@ -3,14 +3,17 @@
 # Main
 laravel/*
 
-# Controllers
+# App folder
 !laravel/app/
 laravel/app/*
+!laravel/app/Events/
 !laravel/app/Http/
 laravel/app/Http/*
 !laravel/app/Http/Controllers
 laravel/app/Http/Controllers/Auth/
+!laravel/app/Listeners
 !laravel/app/Mail
+!laravel/app/Providers
 !laravel/app/Services
 
 # Migrations
