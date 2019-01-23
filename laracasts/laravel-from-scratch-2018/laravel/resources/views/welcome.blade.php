@@ -12,8 +12,7 @@
         <link href="{{ mix('/css/app.css') }}" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <div id="app" class="">
-            <example-component></example-component>
+        <div id="app" class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -44,6 +43,10 @@
                 </div>
             </div>
         </div>
+
+        @if (session('message'))
+            <p style="text-align: center;">{{ session('message') }}</p>
+        @endif
 
         {{-- <script src="/js/manifest.js"></script> --}}
         {{-- <script src="/js/vendor.js"></script> --}}

@@ -15,6 +15,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('projects/create', function () {
+    return view('projects/create');
+});
+
+Route::post('projects', function () {
+    // validate form
+    // save project
+
+    flash('Your project has been created.');
+
+    // return redirect('/')->with('message', 'Your project has been created.');
+
+    return redirect('/');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
