@@ -7,35 +7,30 @@ use App\Project;
 class ProjectsController extends Controller
 {
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Show the page to create a new project.
      */
     public function create()
     {
         return view('projects.create', [
-            'projects' => Project::all()
+            'projects' => Project::all() 
         ]);
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * Store a new project in the database.
      */
     public function store()
     {
         $this->validate(request(), [
             'name' => 'required',
-            'description' => 'required'
-        ]);
+            "description" => 'required'
+        ]); 
 
         Project::forceCreate([
             'name' => request('name'),
             'description' => request('description')
-        ]);
+        ]); 
 
-        return ['message' => 'Project created!'];
+        return ['message' => 'Project Created!'];
     }
 }

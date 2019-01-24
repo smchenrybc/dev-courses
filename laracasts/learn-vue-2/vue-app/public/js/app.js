@@ -1,120 +1,212 @@
-/**
- * app.js
- */
-
 class Errors {
-  constructor() {
-    this.errors = {};
-  }
-
-  has(field) {
-    return this.errors.hasOwnProperty(field);
-  }
-
-  any() {
-    return Object.keys(this.errors).length > 0;
-  }
-
-  get(field) {
-    if (this.errors[field]) {
-      return this.errors[field][0];
-    }
-  }
-
-  record(errors) {
-    this.errors = errors;
-  }
-
-  clear(field) {
-    if (field) {
-      delete this.errors[field];
-
-      return;
+    /**
+     * Create a new Errors instance.
+     */
+    constructor() {
+        this.errors = {};
     }
 
-    this.errors = {};
-  }
+
+    /**
+     * Determine if an errors exists for the given field.
+     *
+     * @param {string} field
+     */
+    has(field) {
+        return this.errors.hasOwnProperty(field);
+    }
+
+
+    /**
+     * Determine if we have any errors.
+     */
+    any() {
+        return Object.keys(this.errors).length > 0;
+    }
+
+
+    /**
+     * Retrieve the error message for a field.
+     *
+     * @param {string} field
+     */
+    get(field) {
+        if (this.errors[field]) {
+            return this.errors[field][0];
+        }
+    }
+
+
+    /**
+     * Record the new errors.
+     *
+     * @param {object} errors
+     */
+    record(errors) {
+        this.errors = errors;
+    }
+
+
+    /**
+     * Clear one or all error fields.
+     *
+     * @param {string|null} field
+     */
+    clear(field) {
+        if (field) {
+            delete this.errors[field];
+
+            return;
+        }
+
+        this.errors = {};
+    }
 }
+
 
 class Form {
-  constructor(data) {
-    this.originalData = data;
+    /**
+     * Create a new Form instance.
+     *
+     * @param {object} data
+     */
+    constructor(data) {
+        this.originalData = data;
 
-    for (let field in data) {
-      this[field] = data[field];
+        for (let field in data) {
+            this[field] = data[field];
+        }
+
+        this.errors = new Errors();
     }
 
-    this.errors = new Errors();
-  }
 
-  data() {
-    let data = {};
+    /**
+     * Fetch all relevant data for the form.
+     */
+    data() {
+        let data = {};
 
-    for(let property in this.originalData) {
-      data[property] = this[property];
+        for (let property in this.originalData) {
+            data[property] = this[property];
+        }
+
+        return data;
     }
 
-    return data;
-  }
 
-  reset() {
-    for (let field in this.originalData) {
-      this[field] = '';
+    /**
+     * Reset the form fields.
+     */
+    reset() {
+        for (let field in this.originalData) {
+            this[field] = '';
+        }
+
+        this.errors.clear();
     }
 
-    this.errors.clear();
-  }
 
-  post(url) {
-    return this.submit('POST', url);
-  }
+    /**
+     * Send a POST request to the given URL.
+     * .
+     * @param {string} url
+     */
+    post(url) {
+        return this.submit('post', url);
+    }
 
-  delete(url) {
-    return this.submit('PATCH', url);
-  }
 
-  submit(requestType, url) {
-    return new Promise((resolve, reject) => {
-      axios[requestType](url, this.data())
-        .then(response => {
-          this.onSuccess(response.data);
+    /**
+     * Send a PUT request to the given URL.
+     * .
+     * @param {string} url
+     */
+    put(url) {
+        return this.submit('put', url);
+    }
 
-          resolve(response.data);
-        })
-        .catch(error => {
-          this.onFail(error.response.data);
 
-          reject(error.response.data);
+    /**
+     * Send a PATCH request to the given URL.
+     * .
+     * @param {string} url
+     */
+    patch(url) {
+        return this.submit('patch', url);
+    }
+
+
+    /**
+     * Send a DELETE request to the given URL.
+     * .
+     * @param {string} url
+     */
+    delete(url) {
+        return this.submit('delete', url);
+    }
+
+
+    /**
+     * Submit the form.
+     *
+     * @param {string} requestType
+     * @param {string} url
+     */
+    submit(requestType, url) {
+        return new Promise((resolve, reject) => {
+            axios[requestType](url, this.data())
+                .then(response => {
+                    this.onSuccess(response.data);
+
+                    resolve(response.data);
+                })
+                .catch(error => {
+                    this.onFail(error.response.data);
+
+                    reject(error.response.data);
+                });
         });
-    });
-  }
+    }
 
-  onSuccess(data) {
-    alert(data.message);
 
-    this.reset();
-  }
+    /**
+     * Handle a successful form submission.
+     *
+     * @param {object} data
+     */
+    onSuccess(data) {
+        alert(data.message); // temporary
 
-  onFail(errors) {
-    this.errors.record(errors);
-  }
+        this.reset();
+    }
+
+
+    /**
+     * Handle a failed form submission.
+     *
+     * @param {object} errors
+     */
+    onFail(errors) {
+        this.errors.record(errors);
+    }
 }
 
+
 new Vue({
-  el: '#app',
+    el: '#app',
 
-  data: {
-    form: new Form({
-      name: '',
-      description: ''
-    })
-  },
+    data: {
+        form: new Form({
+            name: '',
+            description: ''
+        })
+    },
 
-  methods: {
-    onSubmit() {
-      this.form.submit('post', '/projects')
-        .then(data => console.log(data))
-        .catch(errors => console.log(errors));
+    methods: {
+        onSubmit() {
+            this.form.post('/projects')
+                .then(response => alert('Wahoo!'));
+        }
     }
-  }
 });
