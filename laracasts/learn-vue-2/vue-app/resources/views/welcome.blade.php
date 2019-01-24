@@ -16,11 +16,7 @@
     </head>
     <body>
         <div id="app">
-            <ul>
-                {{-- <li v-for="skill in skills" v-text="skill">@{{ skill }}</li> --}}
 
-                <li v-for="skill in skills">@{{ skill }}</li>
-            </ul>
         </div>
 
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
