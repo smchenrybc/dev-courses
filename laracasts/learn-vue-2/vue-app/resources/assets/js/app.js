@@ -2,28 +2,36 @@
  * app.js
  */
 
-import Vue from 'vue';
+Vue.component('coupon', {
+  props: ['code'],
 
-let store = {
-  user: {
-    name: 'John Doe'
+  template: `
+    <input type="text" :value="code" @input="updateCode($event.target.value)" ref="input">
+  `,
+
+  data() {
+    return {
+      invalids: ['ALLFREE', 'SPRING']
+    }
+  },
+
+  methods: {
+    updateCode(code) {
+      if (this.invalids.includes(code)) {
+        alert('Sorry! This coupon is no longer valid.');
+
+        this.$refs.input.value = code = '';
+      }
+
+      this.$emit('input', code);
+    }
   }
-}
+})
 
 new Vue ({
-  el: '#one',
+  el: '#app',
 
   data: {
-    foo: 'bar',
-    shared: store
-  }
-});
-
-new Vue({
-  el: '#two',
-
-  data: {
-    foo: 'barzzz',
-    shared: store
+    coupon: 'Coupon code here'
   }
 });
