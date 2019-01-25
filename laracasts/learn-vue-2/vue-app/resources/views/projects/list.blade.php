@@ -1,5 +1,5 @@
 @if (count($projects))
-	<h1 class="title is-3">My Projects</h1>
+	<h2 class="title is-3">My Projects</h2>
 
 	<ul>
 		@foreach ($projects as $project)
