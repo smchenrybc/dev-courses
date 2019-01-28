@@ -1,4 +1,4 @@
-<nav class="tabs">
+<nav class="tabs is-boxed is-centered">
   <div class="container">
     <ul>
       <router-link tag="li" to="/" exact>
