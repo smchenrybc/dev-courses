@@ -1,4 +1,4 @@
-<section class="hero is-info is-bold is-medium">
+<section class="hero is-danger is-bold is-medium">
   <!-- Hero head: will stick at the top -->
   <div class="hero-head">
     <nav class="navbar">
@@ -12,19 +12,6 @@
             <span></span>
             <span></span>
           </span>
-        </div>
-        <div id="navbarMenuHeroA" class="navbar-menu">
-          <div class="navbar-end">
-            <a class="navbar-item is-active">
-              Home
-            </a>
-            <a class="navbar-item">
-              Examples
-            </a>
-            <a class="navbar-item">
-              Documentation
-            </a>
-          </div>
         </div>
       </div>
     </nav>

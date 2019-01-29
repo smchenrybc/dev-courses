@@ -11,3 +11,12 @@ body {
   font-family: sans-serif;
   font-size: 1rem;
 }
+p {
+  margin: 0 0 1.3rem;
+}
+
+form {
+  :last-child {
+    margin-bottom: 0;
+  }
+}
