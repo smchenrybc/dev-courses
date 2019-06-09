@@ -142,8 +142,8 @@ new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/sean/Projects/dev-courses/laracasts/learn-vue-2/vue-app/resources/assets/js/app.js */"./resources/assets/js/app.js");
-module.exports = __webpack_require__(/*! /Users/sean/Projects/dev-courses/laracasts/learn-vue-2/vue-app/resources/assets/scss/app.scss */"./resources/assets/scss/app.scss");
+__webpack_require__(/*! /Users/sean/Projects/dev-courses/laracasts/learn-vue-2/stream/resources/assets/js/app.js */"./resources/assets/js/app.js");
+module.exports = __webpack_require__(/*! /Users/sean/Projects/dev-courses/laracasts/learn-vue-2/stream/resources/assets/scss/app.scss */"./resources/assets/scss/app.scss");
 
 
 /***/ })
