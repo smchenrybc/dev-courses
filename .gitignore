@@ -1,0 +1,17 @@
+# Junk files
+.DS_Store
+Desktop.ini
+Thumbs.db
+
+# Node / NPM
+node_modules/
+npm-debug.log
+
+# Vendor folders
+vendor/
+
+# Security issues
+*/laravel/
+composer.lock
+package-lock.json
+yarn.lock
